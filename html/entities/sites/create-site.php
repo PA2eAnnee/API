@@ -7,8 +7,8 @@ function createSite(string $adress, string $postcode): void
     $databaseConnection = getDatabaseConnection();
 
     $createUserQuery = $databaseConnection->prepare("
-        INSERT INTO users(
-            adress,
+        INSERT INTO SITE(
+            address,
             postcode
         ) VALUES (
             :adress,

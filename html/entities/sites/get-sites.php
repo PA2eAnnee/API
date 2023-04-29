@@ -1,10 +1,35 @@
 <?php
 
-function getSites(): array
+function getSite(?array $columns = null): array
 {
+    if (!is_array($columns)) {
+        $columns = [];
+    }
+
     require_once __DIR__ . "/../../database/connection.php";
 
+    $authorizedColumns = ["id", "address", "postcode"];
+
+    $where = [];
+    $sanitizedColumns = [];
+
+    foreach ($columns as $columnName => $columnValue) {
+        if (!in_array($columnName, $authorizedColumns)) {
+            continue;
+        }
+
+        $where[] = "$columnName = :$columnName";
+        $sanitizedColumns[$columnName] = htmlspecialchars($columnValue);
+    }
+
+    $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
+
     $databaseConnection = getDatabaseConnection();
-    $getUsersQuery = $databaseConnection->query("SELECT * FROM site;");
-    return $getUsersQuery->fetchAll(PDO::FETCH_ASSOC);
+    $getUserQuery = $databaseConnection->prepare("SELECT * FROM SITE WHERE $whereClause;");
+    $getUserQuery->execute($sanitizedColumns);
+
+    $users = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
+
+    return $users;
 }
+

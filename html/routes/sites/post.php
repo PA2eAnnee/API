@@ -11,7 +11,7 @@ require_once __DIR__ . "/../../entities/sites/create-site.php";
 try {
     $body = getBody();
 
-    createSite($body["adress"], $body["postcode"]);
+    createSite($body["address"], $body["postcode"]);
 
     echo jsonResponse(200, [], [
         "success" => true,

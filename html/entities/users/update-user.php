@@ -8,7 +8,7 @@ function updateUser(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["email", "password"];
+    $authorizedColumns = ["email", "name", "first_name", "username", "email", "role", "subscription", "password"];
 
     $set = [];
 
@@ -29,6 +29,6 @@ function updateUser(string $id, $columns): void
     $set = implode(", ", $set);
 
     $databaseConnection = getDatabaseConnection();
-    $updateUserQuery = $databaseConnection->prepare("UPDATE users SET $set WHERE id = :id;");
+    $updateUserQuery = $databaseConnection->prepare("UPDATE USERS SET $set WHERE id = :id;");
     $updateUserQuery->execute($sanitizedColumns);
 }

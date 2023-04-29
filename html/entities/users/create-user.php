@@ -7,7 +7,7 @@ function createUser(string $name, string $first_name, string $password, string $
     $databaseConnection = getDatabaseConnection();
 
     $createUserQuery = $databaseConnection->prepare("
-        INSERT INTO users(
+        INSERT INTO USERS(
             name,
             first_name,
             password,
