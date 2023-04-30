@@ -20,7 +20,7 @@ function createUser(string $name, string $first_name, string $password, string $
         ) VALUES (
             :name,
             :first_name,
-            :password,
+            :passwords,
             :username,
             :email,
             :role,
@@ -35,7 +35,7 @@ function createUser(string $name, string $first_name, string $password, string $
         ":first_name" => htmlspecialchars($first_name),
         ":username" => htmlspecialchars($username),
         ":email" => htmlspecialchars($email),
-        ":password" => password_hash(htmlspecialchars($password), PASSWORD_BCRYPT),
+        ":passwords" => password_hash(htmlspecialchars($password), PASSWORD_BCRYPT),
         ":role" => htmlspecialchars($role),
         ":subscription" => htmlspecialchars($subscription),
         ":picture" => htmlspecialchars($picture)
