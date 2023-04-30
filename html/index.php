@@ -301,6 +301,15 @@ if(isPath("books")) {
     }
 }
 
+if(isPath("connection")) {
+    if (isGetMethod()) {
+        require_once __DIR__ . "/routes/connection/get.php";
+        die();
+    }
+
+}
+
+
 echo jsonResponse(404, [], [
     "success" => false,
     "message" => "Route not found"
