@@ -302,8 +302,35 @@ if(isPath("books")) {
 }
 
 if(isPath("connection")) {
-    if (isGetMethod()) {
+    if (isPostMethod()) {
         require_once __DIR__ . "/routes/connection/get.php";
+        die();
+    }
+
+}
+
+if (isPath("tokens")) {
+    if (isGetMethod()) {
+        require_once __DIR__ . "/routes/tokens/get.php";
+        die();
+    }
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/tokens/post.php";
+        die();
+    }
+}
+
+if (isPath("tokens/:token")) {
+    if (isDeleteMethod()) {
+        require_once __DIR__ . "/routes/tokens/delete.php";
+        die();
+    }
+}
+
+if(isPath("connectiontoken")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/connectiontoken/get.php";
         die();
     }
 
