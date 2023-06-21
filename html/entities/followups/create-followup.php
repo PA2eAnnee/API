@@ -8,7 +8,7 @@ function createFollowup(string $id_sender, string $content, string $id_ticket): 
 
     $createUserQuery = $databaseConnection->prepare("
     INSERT INTO FOLLOWUP (id_sender, content, send_date, id_ticket) VALUES
-    (:id_sender, :content, NOW(), :id_ticket);
+    (:id_sender, :content, CURRENT_TIMESTAMP, :id_ticket);
     ");
 
     $createUserQuery->execute([

@@ -26,7 +26,7 @@ function createUser(string $name, string $first_name, string $password, string $
             :role,
             :subscription,
             :picture,
-            NOW()
+            CURRENT_TIMESTAMP
         );
     ");
 

@@ -1,6 +1,6 @@
 <?php
 
-function getEvent(?array $columns = null): array
+function getRecipe(?array $columns = null): array
 {
     if (!is_array($columns)) {
         $columns = [];
@@ -8,8 +8,7 @@ function getEvent(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id", "description", "type", "max_members", "price", "start_date", "end_date", "id_site", "recipe_id"];
-
+    $authorizedColumns = ["id","email", "description", "duration", "complexityLevel", "video"];
     $where = [];
     $sanitizedColumns = [];
 
@@ -18,23 +17,18 @@ function getEvent(?array $columns = null): array
             continue;
         }
 
-        if ($columnValue === null) {
-            $sanitizedColumns[$columnName] = null;
-        } else {
-            $sanitizedColumns[$columnName] = htmlspecialchars($columnValue);
-        }
-
         $where[] = "$columnName = :$columnName";
+        $sanitizedColumns[$columnName] = htmlspecialchars($columnValue);
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
 
     $databaseConnection = getDatabaseConnection();
-    $getUserQuery = $databaseConnection->prepare("SELECT * FROM EVENT WHERE $whereClause;");
+    $getUserQuery = $databaseConnection->prepare("SELECT * FROM Recipe WHERE $whereClause;");
     $getUserQuery->execute($sanitizedColumns);
 
-    $events = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
+    $recipes = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    return $events;
+    return $recipes;
 }
 

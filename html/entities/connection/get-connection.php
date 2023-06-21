@@ -8,12 +8,15 @@ function getConnection(string $email, string $password): ?array
     $user = getUser(["email" => $email]);
 
     if (empty($user)) {
-        return ["success" => false, "error" => "L'utilisateur n'existe pas", "connection" => null];
+        return [
+            'success' => false,
+            'message' => "L'adresse mail ou le mot de passe est incorrect"
+          ];
     }
 
     // Vérifier si le mot de passe est correct
     if (!password_verify($password, $user[0]['password'])) {
-        return ["success" => false, "error" => "Mot de passe incorrect", "connection" => null];
+        return ["success" => false, "error" => "L'adresse mail ou le mot de passe est incorrect", "connection" => null];
     }
 
     // Générer un token unique
@@ -29,7 +32,7 @@ function getConnection(string $email, string $password): ?array
     
 
     // Retourner toutes les informations de l'utilisateur avec le token généré
-    return ["success" => true, "error" => null, "connection" => array_merge($user[0], ["token" => $token])];
+    return ["connection" => array_merge($user[0], ["token" => $token])];
 }
 
 

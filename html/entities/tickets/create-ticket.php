@@ -8,7 +8,7 @@ function createTicket(string $title, string $description, string $id_sender): vo
 
     $createUserQuery = $databaseConnection->prepare("
     INSERT INTO TICKET (title, description, creation_date, id_sender) VALUES
-    (:title, :description, NOW(), :id_sender);
+    (:title, :description, CURRENT_TIMESTAMP, :id_sender);
     ");
 
     $createUserQuery->execute([

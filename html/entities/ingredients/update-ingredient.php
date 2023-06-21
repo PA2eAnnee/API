@@ -1,6 +1,6 @@
 <?php
 
-function updateEvent(string $id, $columns): void
+function updateIngredients(string $id, $columns): void
 {
     if (count($columns) === 0) {
         return;
@@ -8,7 +8,7 @@ function updateEvent(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["description", "type", "max_members", "price", "start_date", "end_date", "id_site","recipe_id"];
+    $authorizedColumns = ["name"];
 
     $set = [];
 
@@ -29,6 +29,6 @@ function updateEvent(string $id, $columns): void
     $set = implode(", ", $set);
 
     $databaseConnection = getDatabaseConnection();
-    $updateUserQuery = $databaseConnection->prepare("UPDATE EVENT SET $set WHERE id = :id;");
+    $updateUserQuery = $databaseConnection->prepare("UPDATE Ingredient SET $set WHERE id = :id;");
     $updateUserQuery->execute($sanitizedColumns);
 }

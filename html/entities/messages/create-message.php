@@ -8,7 +8,7 @@ function createMessage(string $id_sender, string $content, string $id_conversati
 
     $createUserQuery = $databaseConnection->prepare("
     INSERT INTO MESSAGE (id_sender, content, send_date, id_conversation) VALUES
-    (:id_sender, :content, NOW(), :id_conversation);
+    (:id_sender, :content, CURRENT_TIMESTAMP, :id_conversation);
     ");
 
     $createUserQuery->execute([

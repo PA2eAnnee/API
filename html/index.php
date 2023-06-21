@@ -226,13 +226,16 @@ if (isPath("followups/:followup")) {
 }
 
 if(isPath("events")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/events/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/events/post.php";
+        die();
+    }
+}
+
+if(isPath("getevents")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/events/get.php";
         die();
     }
 }
@@ -250,20 +253,29 @@ if (isPath("events/:event")) {
 }
 
 if(isPath("goestos")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/goestos/get.php";
-        die();
-    }
-
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/goestos/post.php";
         die();
     }
 
-    if (isDeleteMethod()) {
+}
+
+if(isPath("deletegoestos")) {
+    if (isPostMethod()) {
         require_once __DIR__ . "/routes/goestos/delete.php";
         die();
     }
+
+}
+
+
+
+if(isPath("getgoestos")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/goestos/get.php";
+        die();
+    }
+
 }
 
 if(isPath("contains")) {
@@ -335,6 +347,77 @@ if(isPath("connectiontoken")) {
     }
 
 }
+
+
+if (isPath("recipe")) {
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/recipe/post.php";
+        die();
+    }
+}
+
+if (isPath("recipes/:recipe")) {
+    if (isDeleteMethod()) {
+        require_once __DIR__ . "/routes/recipe/delete.php";
+        die();
+    }
+
+    if (isPatchMethod()) {
+        require_once __DIR__ . "/routes/recipe/patch.php";
+        die();
+    }
+}
+
+if (isPath("getrecipe")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/recipe/get.php";
+        die();
+    }
+}
+
+if (isPath("ingredient")) {
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/ingredients/post.php";
+        die();
+    }
+}
+
+if (isPath("ingredients/:ingredient")) {
+    if (isDeleteMethod()) {
+        require_once __DIR__ . "/routes/ingredients/delete.php";
+        die();
+    }
+
+    if (isPatchMethod()) {
+        require_once __DIR__ . "/routes/ingredients/patch.php";
+        die();
+    }
+}
+
+if (isPath("getingredient")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/ingredients/get.php";
+        die();
+    }
+}
+
+if (isPath("recipeIngredient")) {
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/recipeIngredient/post.php";
+        die();
+    }
+}
+
+if (isPath("getrecipeIngredient")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/recipeIngredient/get.php";
+        die();
+    }
+}
+
 
 
 echo jsonResponse(404, [], [
