@@ -1,5 +1,5 @@
 <?php
-function getConnection(string $email, string $password): ?array
+function getConnection(string $email, string $password, $user): ?array
 {
     require_once __DIR__ . "/../../database/connection.php";
 

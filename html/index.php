@@ -4,6 +4,15 @@
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header("Access-Control-Allow-Origin: http://cookmaster.local");
+    header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE");
+    header("Access-Control-Allow-Headers: Content-Type");
+    header("HTTP/1.1 200 OK");
+    exit();
+}
+
+
 require_once __DIR__ . "/libraries/path.php";
 require_once __DIR__ . "/libraries/method.php";
 require_once __DIR__ . "/libraries/response.php";
@@ -315,7 +324,7 @@ if(isPath("books")) {
 
 if(isPath("connection")) {
     if (isPostMethod()) {
-        require_once __DIR__ . "/routes/connection/get.php";
+        require_once __DIR__ . "/routes/connection/post.php";
         die();
     }
 
@@ -414,6 +423,13 @@ if (isPath("recipeIngredient")) {
 if (isPath("getrecipeIngredient")) {
     if (isPostMethod()) {
         require_once __DIR__ . "/routes/recipeIngredient/get.php";
+        die();
+    }
+}
+
+if(isPath("register")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/register/post.php";
         die();
     }
 }
