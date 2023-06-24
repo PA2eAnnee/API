@@ -1,23 +1,7 @@
 <?php
-function getConnection(string $email, string $password): ?array
+function getConnection(string $email, string $password, $user): ?array
 {
     require_once __DIR__ . "/../../database/connection.php";
-    require_once __DIR__ . "/../users/get-users.php";
-
-    // Vérifier si l'utilisateur existe avec l'email donné
-    $user = getUser(["email" => $email]);
-
-    if (empty($user)) {
-        return [
-            'success' => false,
-            'message' => "L'adresse mail ou le mot de passe est incorrect"
-          ];
-    }
-
-    // Vérifier si le mot de passe est correct
-    if (!password_verify($password, $user[0]['password'])) {
-        return ["success" => false, "error" => "L'adresse mail ou le mot de passe est incorrect", "connection" => null];
-    }
 
     // Générer un token unique
     $token = bin2hex(random_bytes(64));
