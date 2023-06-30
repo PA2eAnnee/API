@@ -11,7 +11,6 @@ function jsonResponse($statusCode, $headers, $body)
     }
 
     header("Content-Type: application/json");
-    header("Access-Control-Allow-Origin: http://cookmaster.local");
     // On renvoie une réponse (contenu)
     return json_encode($body);
 }
