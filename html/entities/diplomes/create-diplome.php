@@ -7,7 +7,7 @@ function createDiplomes(string $description, string $user_id, string $date_obten
     $databaseConnection = getDatabaseConnection();
 
     $createUserQuery = $databaseConnection->prepare("
-        INSERT INTO USERS(
+        INSERT INTO DIPLOMES(
             description,
             user_id,
             date_obtention
