@@ -16,13 +16,16 @@ require_once __DIR__ . "/libraries/response.php";
 
 
 if (isPath("users")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/users/get.php";
-        die();
-    }
 
     if (isPostMethod()) {
         require_once __DIR__ . "/routes/users/post.php";
+        die();
+    }
+}
+
+if (isPath("getusers")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/users/get.php";
         die();
     }
 }
@@ -40,13 +43,16 @@ if (isPath("users/:user")) {
 }
 
 if(isPath("sites")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/sites/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/sites/post.php";
+        die();
+    }
+}
+
+if(isPath("getsites")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/sites/get.php";
         die();
     }
 }
@@ -64,15 +70,19 @@ if (isPath("sites/:site")) {
 }
 
 if(isPath("articles")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/articles/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/articles/post.php";
         die();
     }
+}
+
+if(isPath("getarticles")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/articles/get.php";
+        die();
+    }
+
 }
 
 if (isPath("articles/:article")) {
@@ -88,13 +98,16 @@ if (isPath("articles/:article")) {
 }
 
 if(isPath("spaces")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/spaces/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/spaces/post.php";
+        die();
+    }
+}
+
+if(isPath("getspaces")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/spaces/get.php";
         die();
     }
 }
@@ -112,15 +125,19 @@ if (isPath("spaces/:space")) {
 }
 
 if(isPath("conversations")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/conversations/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/conversations/post.php";
         die();
     }
+}
+
+if(isPath("getconversations")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/conversations/get.php";
+        die();
+    }
+
 }
 
 if (isPath("conversations/:conversation")) {
@@ -136,13 +153,16 @@ if (isPath("conversations/:conversation")) {
 }
 
 if(isPath("messages")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/messages/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/messages/post.php";
+        die();
+    }
+}
+
+if(isPath("getmessages")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/messages/get.php";
         die();
     }
 }
@@ -160,13 +180,16 @@ if (isPath("messages/:message")) {
 }
 
 if(isPath("tickets")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/tickets/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/tickets/post.php";
+        die();
+    }
+}
+
+if(isPath("gettickets")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/tickets/get.php";
         die();
     }
 }
@@ -184,15 +207,19 @@ if (isPath("tickets/:ticket")) {
 }
 
 if(isPath("orders")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/orders/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/orders/post.php";
         die();
     }
+}
+
+if(isPath("getorders")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/orders/get.php";
+        die();
+    }
+
 }
 
 if (isPath("orders/:order")) {
@@ -208,13 +235,16 @@ if (isPath("orders/:order")) {
 }
 
 if(isPath("followups")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/followups/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/followups/post.php";
+        die();
+    }
+}
+
+if(isPath("getfollowups")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/followups/get.php";
         die();
     }
 }
@@ -285,10 +315,6 @@ if(isPath("getgoestos")) {
 }
 
 if(isPath("contains")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/contains/get.php";
-        die();
-    }
 
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/contains/post.php";
@@ -302,12 +328,15 @@ if(isPath("contains")) {
 
 }
 
-if(isPath("books")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/books/get.php";
+if(isPath("getcontains")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/contains/get.php";
         die();
     }
 
+}
+
+if(isPath("books")) {
     if(isPostMethod()) {
         require_once __DIR__ . "/routes/books/post.php";
         die();
@@ -319,6 +348,14 @@ if(isPath("books")) {
     }
 }
 
+if(isPath("getbooks")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/books/get.php";
+        die();
+    }
+
+}
+
 if(isPath("connection")) {
     if (isPostMethod()) {
         require_once __DIR__ . "/routes/connection/post.php";
@@ -328,13 +365,16 @@ if(isPath("connection")) {
 }
 
 if (isPath("tokens")) {
-    if (isGetMethod()) {
-        require_once __DIR__ . "/routes/tokens/get.php";
-        die();
-    }
 
     if (isPostMethod()) {
         require_once __DIR__ . "/routes/tokens/post.php";
+        die();
+    }
+}
+
+if (isPath("gettokens")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/tokens/get.php";
         die();
     }
 }
