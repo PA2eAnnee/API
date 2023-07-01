@@ -472,6 +472,34 @@ if(isPath("register")) {
 }
 
 
+if (isPath("diplomes")) {
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/diplomes/post.php";
+        die();
+    }
+}
+
+if (isPath("diplomes/:diplome")) {
+    if (isDeleteMethod()) {
+        require_once __DIR__ . "/routes/diplomes/delete.php";
+        die();
+    }
+
+    if (isPatchMethod()) {
+        require_once __DIR__ . "/routes/diplomes/patch.php";
+        die();
+    }
+}
+
+if (isPath("diplomes")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/diplomes/get.php";
+        die();
+    }
+}
+
+
 
 echo jsonResponse(404, [], [
     "success" => false,
