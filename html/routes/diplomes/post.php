@@ -11,7 +11,7 @@ require_once __DIR__ . "/../../entities/diplomes/create-diplome.php";
 try {
     $body = getBody();
 
-    createDiplomes($body["description"], $body["user_id"], $body["date_obtention"]);
+    createDiplomes($body["description"], $body["user_id"]);
 
     echo jsonResponse(200, [], [
         "success" => true,

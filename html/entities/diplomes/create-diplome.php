@@ -1,6 +1,6 @@
 <?php
 
-function createDiplomes(string $description, string $user_id, string $date_obtention): void
+function createDiplomes(string $description, string $user_id): void
 {
     require_once __DIR__ . "/../../database/connection.php";
 
@@ -20,7 +20,6 @@ function createDiplomes(string $description, string $user_id, string $date_obten
 
     $createUserQuery->execute([
         ":description" => htmlspecialchars($description),
-        ":user_id" => htmlspecialchars($user_id),
-        ":date_obtention" => htmlspecialchars($date_obtention)
+        ":user_id" => htmlspecialchars($user_id)
     ]);
 }
