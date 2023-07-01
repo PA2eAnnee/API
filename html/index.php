@@ -492,7 +492,7 @@ if (isPath("diplomes/:diplome")) {
     }
 }
 
-if (isPath("diplomes")) {
+if (isPath("getdiplomes")) {
     if (isPostMethod()) {
         require_once __DIR__ . "/routes/diplomes/get.php";
         die();
