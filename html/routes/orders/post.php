@@ -7,19 +7,33 @@
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../entities/orders/create-order.php";
+require_once __DIR__ . "/../../libraries/authorization.php";
 
-try {
-    $body = getBody();
 
-    createOrder($body["total_price"], $body["id_user"]);
 
-    echo jsonResponse(200, [], [
-        "success" => true,
-        "message" => "Commande créé"
-    ]);
-} catch (Exception $exception) {
-    echo jsonResponse(500, [], [
+if (authorization(0)){
+
+    try {
+        $body = getBody();
+    
+        createOrder($body["total_price"], $body["id_user"]);
+    
+        echo jsonResponse(200, [], [
+            "success" => true,
+            "message" => "Commande créé"
+        ]);
+    } catch (Exception $exception) {
+        echo jsonResponse(500, [], [
+            "success" => false,
+            "error" => $exception->getMessage()
+        ]);
+    }
+
+
+
+}else{
+    echo jsonResponse(400, [], [
         "success" => false,
-        "error" => $exception->getMessage()
+        "error" => "Vous n'avez pas les droit néccessaire pour effectuer cette action"
     ]);
 }

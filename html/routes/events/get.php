@@ -2,6 +2,7 @@
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../entities/events/get-events.php";
+require_once __DIR__ . "/../../libraries/authorization.php";
 
 
 if (authorization(0)){

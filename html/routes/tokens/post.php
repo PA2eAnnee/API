@@ -7,19 +7,32 @@
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../entities/tokens/create-token.php";
+require_once __DIR__ . "/../../libraries/authorization.php";
 
-try {
-    $body = getBody();
 
-    createToken($body["user_id"], $body["token"]);
+if (authorization(2)){
 
-    echo jsonResponse(200, [], [
-        "success" => true,
-        "message" => "Token créé"
-    ]);
-} catch (Exception $exception) {
-    echo jsonResponse(500, [], [
+    try {
+        $body = getBody();
+    
+        createToken($body["user_id"], $body["token"]);
+    
+        echo jsonResponse(200, [], [
+            "success" => true,
+            "message" => "Token créé"
+        ]);
+    } catch (Exception $exception) {
+        echo jsonResponse(500, [], [
+            "success" => false,
+            "error" => $exception->getMessage()
+        ]);
+    }
+
+
+
+}else{
+    echo jsonResponse(400, [], [
         "success" => false,
-        "error" => $exception->getMessage()
+        "error" => "Vous n'avez pas les droit néccessaire pour effectuer cette action"
     ]);
 }

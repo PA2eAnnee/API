@@ -7,19 +7,32 @@
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../entities/users/create-user.php";
+require_once __DIR__ . "/../../libraries/authorization.php";
 
-try {
-    $body = getBody();
 
-    createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"], $body["role"], $body["subscription"], $body["picture"]);
+if (authorization(2)){
 
-    echo jsonResponse(200, [], [
-        "success" => true,
-        "message" => "Utlisateur créé"
-    ]);
-} catch (Exception $exception) {
-    echo jsonResponse(500, [], [
+    try {
+        $body = getBody();
+    
+        createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"], $body["role"], $body["subscription"], $body["picture"]);
+    
+        echo jsonResponse(200, [], [
+            "success" => true,
+            "message" => "Utlisateur créé"
+        ]);
+    } catch (Exception $exception) {
+        echo jsonResponse(500, [], [
+            "success" => false,
+            "error" => $exception->getMessage()
+        ]);
+    }
+
+
+
+}else{
+    echo jsonResponse(400, [], [
         "success" => false,
-        "error" => $exception->getMessage()
+        "error" => "Vous n'avez pas les droit néccessaire pour effectuer cette action"
     ]);
 }
