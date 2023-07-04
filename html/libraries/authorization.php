@@ -30,12 +30,12 @@ function authorization($role) {
     ]);
     $userData = $selectRoleQuery->fetch();
 
-    $role = isset($userData['role']) ? $userData['role'] : null;
+    $roleToTest = isset($userData['role']) ? $userData['role'] : null;
 
 
 
-    if($role !== null){
-        $rolenumber = getRoleNumber($role);
+    if($roleToTest !== null){
+        $rolenumber = getRoleNumber($roleToTest);
         if($rolenumber >= $role ){
             return true;
         }
@@ -45,7 +45,7 @@ function authorization($role) {
 
 
 
-    return $userId;
+    return false;
 
 
 }
