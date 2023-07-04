@@ -22,11 +22,13 @@ if (authorization(3)){
             "error" => $exception->getMessage()
         ]);
     }
-}
-
-
+}else{
     echo jsonResponse(400, [], [
         "success" => false,
         "error" => "Vous n'avez pas les droit néccessaire pour effectuer cette action"
     ]);
+}
+
+
+    
 
