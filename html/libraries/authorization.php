@@ -9,9 +9,9 @@ function authorization($role) {
     $token = isset($headers['Authorization']) ? $headers['Authorization'] : null;
 
     // Vérifier si le token existe
-    // if (!$token) {
-    //     return null; // ou une valeur par défaut si nécessaire
-    // }
+    if (!$token) {
+        return null; // ou une valeur par défaut si nécessaire
+    }
 
     // Supprimer le préfixe 'Bearer ' du token si présent
     $token = str_replace('Bearer ', '', $token);
@@ -45,14 +45,14 @@ function authorization($role) {
 
 
 
-    return false;
+    return $userId;
 
 
 }
 
 function getRoleNumber($role) {
     $correspondanceTable = [
-        'users' => 0,
+        'USER' => 0,
         'COOKER' => 1,
         'WORKER' => 2,
         'ADMIN' => 3,

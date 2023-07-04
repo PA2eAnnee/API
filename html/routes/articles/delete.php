@@ -6,7 +6,7 @@ require_once __DIR__ . "/../../libraries/authorization.php";
 require_once __DIR__ . "/../../entities/articles/delete-articles.php";
 
 
-if (authorization(3)){
+if (authorization(3)=== 59){
     try {
         $parameters = getParametersForRoute("/articles/:article");
         $id = $parameters["article"];
