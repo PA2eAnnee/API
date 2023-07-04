@@ -17,7 +17,7 @@ function getConnection(string $token): array
 
     
     if ($time_elapsed_hours < 24) {
-        return ["success" => true, "user_id" => $tokenData[0]['user_id']];
+        return ["user_id" => $tokenData[0]['user_id']];
     } else {
         $databaseConnection = getDatabaseConnection();
         $insertTokenQuery = $databaseConnection->prepare("DELETE FROM TOKENS WHERE token = :token;");
