@@ -1,8 +1,8 @@
 <?php
 
 function authorization($role) {
-    require_once __DIR__ . "/../../database/connection.php";
-    require_once __DIR__ . "/../tokens/get-tokens.php";
+    require_once __DIR__ . "/../database/connection.php";
+    require_once __DIR__ . "/../entities/tokens/get-tokens.php";
 
 
     $headers = apache_request_headers();
