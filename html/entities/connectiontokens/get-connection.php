@@ -1,4 +1,5 @@
 <?php
+
 function getConnection(string $token): array
 {
     require_once __DIR__ . "/../../database/connection.php";
@@ -7,7 +8,7 @@ function getConnection(string $token): array
     $tokenData = getToken(["token" => $token]);
 
     if (empty($tokenData) || !isset($tokenData[0]['token'])) {
-        return ["success" => false, "user_id" => null, "error" => "Token inexistant dans la BDD"];
+        return ["success" => false, "role" => null, "error" => "Token inexistant dans la BDD"];
     }
 
     $current_time = time();
@@ -17,7 +18,17 @@ function getConnection(string $token): array
 
     
     if ($time_elapsed_hours < 24) {
-        return ["success" => true, "user_id" => $tokenData[0]['user_id']];
+        $databaseConnection = getDatabaseConnection();
+        $selectRoleQuery = $databaseConnection->prepare("SELECT role FROM USERS WHERE id = :id;");
+        $selectRoleQuery->execute([
+            "id" => $tokenData[0]['user_id'],
+        ]);
+        $userData = $selectRoleQuery->fetch(); // Récupère le rôle directement depuis la requête
+    
+        $role = isset($userData['role']) ? $userData['role'] : null; 
+
+
+        return ["success" => true, "role" => $role];
     } else {
         $databaseConnection = getDatabaseConnection();
         $insertTokenQuery = $databaseConnection->prepare("DELETE FROM TOKENS WHERE token = :token;");
