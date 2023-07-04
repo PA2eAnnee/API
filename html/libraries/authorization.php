@@ -9,9 +9,9 @@ function authorization($role) {
     $token = isset($headers['Authorization']) ? $headers['Authorization'] : null;
 
     // Vérifier si le token existe
-    if (!$token) {
-        return null; // ou une valeur par défaut si nécessaire
-    }
+    // if (!$token) {
+    //     return null; // ou une valeur par défaut si nécessaire
+    // }
 
     // Supprimer le préfixe 'Bearer ' du token si présent
     $token = str_replace('Bearer ', '', $token);
