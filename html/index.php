@@ -499,6 +499,13 @@ if (isPath("getdiplomes")) {
     }
 }
 
+if (isPath("stripeapi")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/stripe_api.php"; 
+        die();
+    }
+}
+
 
 
 echo jsonResponse(404, [], [
