@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/parameters.php";
-require_once __DIR__ . "/../../entities/participe_courses/delete-participe_course.php";
+require_once __DIR__ . "/../../entities/participe_courses/delete-participate_course.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
 
 
