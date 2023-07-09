@@ -8,7 +8,7 @@ function updateLessons(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["name", "description", "consultation_date"];
+    $authorizedColumns = ["name", "description"];
 
     $set = [];
 

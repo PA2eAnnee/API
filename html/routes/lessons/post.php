@@ -15,7 +15,7 @@ if (authorization(2)){
     try {
         $body = getBody();
     
-        createLessons($body["name"], $body["description"], $body["consultation_date"]);
+        createLessons($body["name"], $body["description"]);
     
         echo jsonResponse(200, [], [
             "success" => true,
