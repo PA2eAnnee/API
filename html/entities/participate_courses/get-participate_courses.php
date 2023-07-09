@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../courses/get-courses.php";
+require_once __DIR__ . "/../cours/get-cours.php";
 
 function getParticipe_courses(?array $columns = null): array
 {
