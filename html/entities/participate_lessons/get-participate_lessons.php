@@ -31,16 +31,13 @@ function getParticipate_lessons(?array $columns = null): array
     $getUserQuery->execute($sanitizedColumns);
 
     $participatedLessons = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
-    $lessons = [];
+    $lessonIds = [];
 
     foreach ($participatedLessons as $participatedLesson) {
-        $lessonId = $participatedLesson['lesson_id'];
-        $lesson = getLessons(['lesson_id' => $lessonId]); // Pass an array with 'lesson_id' as the key and $lessonId as the value
-
-        if ($lesson) {
-            $lessons[] = $lesson;
-        }
+        $lessonIds[] = $participatedLesson['lesson_id'];
     }
+
+    $lessons = getLessons(['lesson_id' => $lessonIds]);
 
     return $lessons;
 }
