@@ -33,7 +33,7 @@ function getParticipe_courses(?array $columns = null): array
 
     $courses = [];
     foreach ($participatedCours as $participatedCourse) {
-        $course = getCours(['course_id' => $participatedCourse['course_id']]);
+        $course = getCours(['id' => $participatedCourse['course_id']]);
         $courses[] = $course[0];
     }
 
