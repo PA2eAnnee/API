@@ -21,7 +21,7 @@ function getParticipate_lessons(?array $columns = null): array
         }
 
         $where[] = "$columnName = :$columnName";
-        $sanitizedColumns[$columnName] = htmlspecialchars($columnValue);
+        $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
@@ -44,5 +44,3 @@ function getParticipate_lessons(?array $columns = null): array
 
     return $lessons;
 }
-
-
