@@ -1,6 +1,6 @@
 <?php
 
-function updateLesson(string $id, $columns): void
+function updateLessons(string $id, $columns): void
 {
     if (count($columns) === 0) {
         return;
