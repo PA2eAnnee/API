@@ -617,6 +617,30 @@ if(isPath("deleteparticipate_courses")) {
 
 }
 
+if(isPath("getrequire_courses")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/participate_courses/get.php";
+        die();
+    }
+
+}
+
+if(isPath("require_courses")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/require_courses/post.php";
+        die();
+    }
+
+}
+
+if(isPath("deleterequire_courses")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/require_courses/delete.php";
+        die();
+    }
+
+}
+
 
 
 
