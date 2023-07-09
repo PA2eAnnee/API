@@ -26,9 +26,11 @@ function getGoesto(?array $columns = null): array
 
     $databaseConnection = getDatabaseConnection();
     $getUserQuery = $databaseConnection->prepare("SELECT * FROM GOESTO WHERE $whereClause");
+    echo($getUserQuery);
     $getUserQuery->execute($sanitizedColumns);
 
     $goestos = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
+    echo($goestos);
 
     $events = [];
     foreach ($goestos as $goesto) {
