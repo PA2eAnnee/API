@@ -8,7 +8,7 @@ function updateCours(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["email", "description", "price", "type", "email", "course_date"];
+    $authorizedColumns = ["name", "description", "price", "type", "course_date"];
 
     $set = [];
 

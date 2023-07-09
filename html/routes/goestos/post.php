@@ -8,13 +8,14 @@ require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../entities/goestos/create-goesto.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
+require_once __DIR__ . "/../../entities/tokens/get-tokens.php";
+require_once __DIR__ . "/../../libraries/get-bearer-token.php";
 
+$body = getBody();
 
-
-if (authorization(0)){
+if (getToken(["token" => getBearerToken()])[0]["user_id"] == $body["id_user"] || authorization(2)) {
 
     try {
-        $body = getBody();
     
         createGoesto($body["id_user"], $body["id_event"]);
     

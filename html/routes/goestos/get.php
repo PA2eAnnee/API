@@ -5,7 +5,7 @@ require_once __DIR__ . "/../../entities/goestos/get-goestos.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
 
 
-if (authorization(0)){
+if (authorization(1)){
 
     try {
 

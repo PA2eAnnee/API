@@ -3,10 +3,9 @@
 function authorization($role) {
     require_once __DIR__ . "/../database/connection.php";
     require_once __DIR__ . "/../entities/tokens/get-tokens.php";
+    require_once __DIR__ . "/get-bearer-token.php";
 
-
-    $headers = apache_request_headers();
-    $token = isset($headers['Authorization']) ? $headers['Authorization'] : null;
+    $token = getBearerToken();
 
     // Vérifier si le token existe
     if (!$token) {
