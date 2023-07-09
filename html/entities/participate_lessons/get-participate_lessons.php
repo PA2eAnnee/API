@@ -37,7 +37,7 @@ function getParticipate_lessons(?array $columns = null): array
         $lessons[] = $lesson[0];
     }
 
-    return $Lessons;
+    return $lessons;
 }
 
 
