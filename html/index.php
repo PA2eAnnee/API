@@ -533,6 +533,33 @@ if (isPath("getcours")) {
     }
 }
 
+if (isPath("lessons")) {
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/lessons/post.php";
+        die();
+    }
+}
+
+if (isPath("lessons/:lesson")) {
+    if (isDeleteMethod()) {
+        require_once __DIR__ . "/routes/lessons/delete.php";
+        die();
+    }
+
+    if (isPatchMethod()) {
+        require_once __DIR__ . "/routes/lessons/patch.php";
+        die();
+    }
+}
+
+if (isPath("getlessons")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/lessons/get.php";
+        die();
+    }
+}
+
 
 
 echo jsonResponse(404, [], [
