@@ -35,7 +35,7 @@ function getParticipate_lessons(?array $columns = null): array
 
     foreach ($participatedLessons as $participatedLesson) {
         $lessonId = $participatedLesson['lesson_id'];
-        $lesson = getLessons([$lessonId]); // Pass an array containing the lessonId
+        $lesson = getLessons(['lesson_id' => $lessonId]); // Pass an array with 'lesson_id' as the key and $lessonId as the value
 
         if ($lesson) {
             $lessons[] = $lesson;
@@ -44,4 +44,5 @@ function getParticipate_lessons(?array $columns = null): array
 
     return $lessons;
 }
+
 
