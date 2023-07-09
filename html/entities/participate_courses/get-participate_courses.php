@@ -20,7 +20,7 @@ function getParticipe_courses(?array $columns = null): array
         }
 
         $where[] = "$columnName = :$columnName";
-        $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
+        $sanitizedColumns[":$columnName"] = $columnValue;
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
@@ -31,13 +31,13 @@ function getParticipe_courses(?array $columns = null): array
 
     $participatedCours = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    $lessons = [];
-    foreach ($participatedCours as $participatedLesson) {
-        $lesson = getCours(['course_id' => $participatedLesson['course_id']]);
-        $lessons[] = $lesson[0];
+    $courses = [];
+    foreach ($participatedCours as $participatedCourse) {
+        $course = getCours(['course_id' => $participatedCourse['course_id']]);
+        $courses[] = $course[0];
     }
 
-    return $participatedCours;
+    return $courses;
 }
 
 
