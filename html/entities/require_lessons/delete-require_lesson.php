@@ -1,6 +1,6 @@
 <?php
 
-function deleteParticipate_lessons(string $formation_id, string $lesson_id): void
+function deleteRequire_lessons(string $formation_id, string $lesson_id): void
 {
     require_once __DIR__ . "/../../database/connection.php";
 
