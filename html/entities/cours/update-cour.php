@@ -29,6 +29,6 @@ function updateCours(string $id, $columns): void
     $set = implode(", ", $set);
 
     $databaseConnection = getDatabaseConnection();
-    $updateUserQuery = $databaseConnection->prepare("UPDATE COURSE SET $set WHERE ID = :ID;");
+    $updateUserQuery = $databaseConnection->prepare("UPDATE COURSE SET $set WHERE id = :ID;");
     $updateUserQuery->execute($sanitizedColumns);
 }
