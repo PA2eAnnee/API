@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
-require_once __DIR__ . "/../../entities/participe_courses/get-participate_courses.php";
+require_once __DIR__ . "/../../entities/participate_courses/get-participate_courses.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
 
 

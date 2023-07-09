@@ -6,7 +6,7 @@
 
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
-require_once __DIR__ . "/../../entities/participe_courses/create-participate_course.php";
+require_once __DIR__ . "/../../entities/participate_courses/create-participate_course.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
 require_once __DIR__ . "/../../entities/tokens/get-tokens.php";
 require_once __DIR__ . "/../../libraries/get-bearer-token.php";
