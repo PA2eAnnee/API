@@ -32,7 +32,7 @@ function getGoesto(?array $columns = null): array
 
     $events = [];
     foreach ($goestos as $goesto) {
-        $event = getEvent(['event_id' => $goesto['id_event']]);
+        $event = getEvent(['id_user' => $goesto['id_user']]);
         $events[] = $event[0];
     }
 
