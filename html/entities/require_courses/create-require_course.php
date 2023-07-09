@@ -8,7 +8,7 @@ function createRequire_courses(string $formation_id, string $course_id): void
 
     $createUserQuery = $databaseConnection->prepare("
     INSERT INTO REQUIRE_COURSE (formation_id, course_id) VALUES
-    (:user_id, :course_id);
+    (:formation_id, :course_id);
     ");
 
     $createUserQuery->execute([
