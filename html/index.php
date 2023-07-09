@@ -560,8 +560,8 @@ if (isPath("getlessons")) {
     }
 }
 
-if(isPath("participate_lessons")) {
-    if(isGetMethod()) {
+if(isPath("getparticipate_lessons")) {
+    if(isPostMethod()) {
         require_once __DIR__ . "/routes/participate_lessons/get.php";
         die();
     }
