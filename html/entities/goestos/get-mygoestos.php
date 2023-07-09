@@ -19,7 +19,7 @@ function getGoesto(?array $columns = null): array
         }
 
         $where[] = "$columnName = :$columnName";
-        $sanitizedColumns[$columnName] = $columnValue;
+        $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
@@ -32,7 +32,7 @@ function getGoesto(?array $columns = null): array
 
     $events = [];
     foreach ($goestos as $goesto) {
-        $event = getEvent(['id_user' => $goesto['id_user']]);
+        $event = getEvent(['id_event' => $goesto['id_event']]);
         $events[] = $event[0];
     }
 
