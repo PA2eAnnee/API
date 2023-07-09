@@ -33,11 +33,8 @@ function getGoesto(?array $columns = null): array
 
     $events = [];
     foreach ($goestos as $goesto) {
-        var_dump($goesto);
         $event = getEvent(['id' => $goesto['id_event']]);
-        var_dump($event);
         $events[] = $event[0];
-        var_dump($events);
     }
 
     return $events;
