@@ -560,6 +560,31 @@ if (isPath("getlessons")) {
     }
 }
 
+if(isPath("participate_lessons")) {
+    if(isGetMethod()) {
+        require_once __DIR__ . "/routes/participate_lessons/get.php";
+        die();
+    }
+
+}
+
+if(isPath("participate_lessons")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/participate_lessons/post.php";
+        die();
+    }
+
+}
+
+if(isPath("deleteparticipate_lessons")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/participate_lessons/delete.php";
+        die();
+    }
+
+}
+
+
 
 
 echo jsonResponse(404, [], [
