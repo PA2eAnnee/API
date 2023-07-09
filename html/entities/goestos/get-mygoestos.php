@@ -33,12 +33,9 @@ function getGoesto(?array $columns = null): array
 
     $events = [];
     foreach ($goestos as $goesto) {
-        echo(" goesto ########################################");
         var_dump($goesto);
-        echo(" event ########################################");
-        $event = getEvent(['id_event' => $goesto['id_event']]);
+        $event = getEvent(['id' => $goesto['id_event']]);
         var_dump($event);
-        echo("events ########################################");
         $events[] = $event[0];
         var_dump($events);
     }
