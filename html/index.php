@@ -506,6 +506,33 @@ if (isPath("stripeapi")) {
     }
 }
 
+if (isPath("cours")) {
+
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/cours/post.php";
+        die();
+    }
+}
+
+if (isPath("cours/:cour")) {
+    if (isDeleteMethod()) {
+        require_once __DIR__ . "/routes/cours/delete.php";
+        die();
+    }
+
+    if (isPatchMethod()) {
+        require_once __DIR__ . "/routes/cours/patch.php";
+        die();
+    }
+}
+
+if (isPath("getcours")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/cours/get.php";
+        die();
+    }
+}
+
 
 
 echo jsonResponse(404, [], [
