@@ -10,7 +10,7 @@ if (authorization(1)){
     try {
 
         $body = getBody();
-        $goestos = getParticipate_lessons($body);
+        $goesparticipate_lessonstos = getParticipate_lessons($body);
     
         echo jsonResponse(200, ["X-School" => "ESGI"], [
             "success" => true,
