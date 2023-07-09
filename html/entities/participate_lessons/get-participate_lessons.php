@@ -20,17 +20,24 @@ function getParticipate_lessons(?array $columns = null): array
         }
 
         $where[] = "$columnName = :$columnName";
-        $sanitizedColumns[":$columnName"] = $columnValue;
+        $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
 
     $databaseConnection = getDatabaseConnection();
-    $getUserQuery = $databaseConnection->prepare("SELECT l.* FROM PARTICIPATE_LESSON pl INNER JOIN LESSON l ON pl.lesson_id = l.lesson_id WHERE $whereClause");
+    $getUserQuery = $databaseConnection->prepare("SELECT * FROM PARTICIPATE_LESSON WHERE $whereClause");
     $getUserQuery->execute($sanitizedColumns);
 
     $participatedLessons = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
 
+    $lessons = [];
+    foreach ($participatedLessons as $participatedLesson) {
+        $lesson = getLessons(['lesson_id' => $participatedLesson['lesson_id']]);
+        $lessons[] = $lesson[0];
+    }
+
     return $participatedLessons;
 }
+
 
