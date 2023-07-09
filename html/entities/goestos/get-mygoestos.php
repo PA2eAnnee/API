@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . "/../events/get-events.php";
-
 function getGoesto(?array $columns = null): array
 {
     if (!is_array($columns)) {
@@ -33,10 +32,9 @@ function getGoesto(?array $columns = null): array
 
     $events = [];
     foreach ($goestos as $goesto) {
-        $event = getEvents(['event_id' => $goesto['id_event']]);
+        $event = getEvent(['event_id' => $goesto['id_event']]);
         $events[] = $event[0];
     }
 
     return $events;
 }
-
