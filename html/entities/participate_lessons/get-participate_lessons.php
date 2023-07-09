@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . "/../lessons/get-lessons.php";
 function getParticipate_lessons(?array $columns = null): array
 {
     if (!is_array($columns)) {
@@ -33,7 +34,7 @@ function getParticipate_lessons(?array $columns = null): array
 
     foreach ($participatedLessons as $participatedLesson) {
         $lessonId = $participatedLesson['lesson_id'];
-        $lesson = getLesson($lessonId); // Utiliser la fonction getLesson pour récupérer les détails de la leçon
+        $lesson = getLessons($lessonId); // Utiliser la fonction getLesson pour récupérer les détails de la leçon
 
         if ($lesson) {
             $lessons[] = $lesson;
