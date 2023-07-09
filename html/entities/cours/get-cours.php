@@ -25,7 +25,7 @@ function getCours(?array $columns = null): array
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
 
     $databaseConnection = getDatabaseConnection();
-    $getUserQuery = $databaseConnection->prepare("SELECT * FROM COURSES WHERE $whereClause;");
+    $getUserQuery = $databaseConnection->prepare("SELECT * FROM COURSE WHERE $whereClause;");
     $getUserQuery->execute($sanitizedColumns);
 
     $users = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
