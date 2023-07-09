@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . "/../events/get-events.php";
 function getGoesto(?array $columns = null): array
 {
     if (!is_array($columns)) {
@@ -19,17 +19,22 @@ function getGoesto(?array $columns = null): array
         }
 
         $where[] = "$columnName = :$columnName";
-        $sanitizedColumns[$columnName] = htmlspecialchars($columnValue);
+        $sanitizedColumns[$columnName] = $columnValue;
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
 
     $databaseConnection = getDatabaseConnection();
-    $getUserQuery = $databaseConnection->prepare("SELECT * FROM GOESTO WHERE $whereClause;");
+    $getUserQuery = $databaseConnection->prepare("SELECT * FROM GOESTO WHERE $whereClause");
     $getUserQuery->execute($sanitizedColumns);
 
-    $users = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
+    $goestos = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    return $users;
+    $events = [];
+    foreach ($goestos as $goesto) {
+        $event = getEvent(['event_id' => $goesto['id_event']]);
+        $events[] = $event[0];
+    }
+
+    return $events;
 }
-
