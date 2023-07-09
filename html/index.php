@@ -593,6 +593,31 @@ if(isPath("deleteparticipate_lessons")) {
 }
 
 
+if(isPath("getparticipate_courses")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/participate_courses/get.php";
+        die();
+    }
+
+}
+
+if(isPath("participate_courses")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/participate_courses/post.php";
+        die();
+    }
+
+}
+
+if(isPath("deleteparticipate_courses")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/participate_courses/delete.php";
+        die();
+    }
+
+}
+
+
 
 
 echo jsonResponse(404, [], [
