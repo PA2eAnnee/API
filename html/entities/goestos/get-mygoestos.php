@@ -32,7 +32,7 @@ function getGoesto(?array $columns = null): array
 
 
     $events = [];
-    foreach ($goestos as $goesto) {
+    foreach ($goestos[0] as $goesto) {
         echo(" goesto ########################################");
         var_dump($goesto);
         echo(" event ########################################");
