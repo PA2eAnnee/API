@@ -9,7 +9,7 @@ function getParticipate_lessons(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["user_id", "lesson_id", "recipe_id", "last_consultation"];
+    $authorizedColumns = ["formation_id", "lesson_id"];
 
     $where = [];
     $sanitizedColumns = [];
@@ -26,18 +26,19 @@ function getParticipate_lessons(?array $columns = null): array
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
 
     $databaseConnection = getDatabaseConnection();
-    $getUserQuery = $databaseConnection->prepare("SELECT * FROM PARTICIPATE_LESSON WHERE $whereClause");
+    $getUserQuery = $databaseConnection->prepare("SELECT * FROM REQUIRE_LESSON WHERE $whereClause");
     $getUserQuery->execute($sanitizedColumns);
 
     $participatedLessons = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
 
     $lessons = [];
     foreach ($participatedLessons as $participatedLesson) {
-        $lesson = getLessons(['lesson_id' => $participatedLesson['lesson_id']]);
+        $lesson = getLessons(['id' => $participatedLesson['lesson_id']]);
         $lessons[] = $lesson[0];
     }
 
-    return $participatedLessons;
+    return $lessons;
 }
+
 
 
