@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . "/../ingredients/get-ingredients.php";
 
 function getRecipeIngredients(?array $columns = null): array
 {
@@ -9,35 +8,28 @@ function getRecipeIngredients(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["recipeid", "ingredientid", "quantity"];
+    $authorizedColumns = ["recipeID", "ingredientID", "quantity"];
 
     $where = [];
     $sanitizedColumns = [];
 
     foreach ($columns as $columnName => $columnValue) {
-        if (!in_array($columnName, $authorizedColumns) || $columnValue === null) {
+        if (!in_array($columnName, $authorizedColumns)) {
             continue;
         }
 
         $where[] = "$columnName = :$columnName";
-        $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
+        $sanitizedColumns[$columnName] = htmlspecialchars($columnValue);
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
 
     $databaseConnection = getDatabaseConnection();
-    $getIngredientsQuery = $databaseConnection->prepare("SELECT * FROM RecipeIngredient WHERE $whereClause");
-    $getIngredientsQuery->execute($sanitizedColumns);
+    $getUserQuery = $databaseConnection->prepare("SELECT * FROM RecipeIngredient WHERE $whereClause;");
+    $getUserQuery->execute($sanitizedColumns);
 
-    $recipeIngredients = $getIngredientsQuery->fetchAll(PDO::FETCH_ASSOC);
+    $recipeIngredients = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    $ingredients = [];
-    foreach ($recipeIngredients as $recipeIngredient) {
-        $ingredient = getIngredients(['id' => $recipeIngredient['ingredientid']]);
-        if (!empty($ingredient)) {
-            $ingredients[] = $ingredient[0];
-        }
-    }
-
-    return $ingredients;
+    return $recipeIngredients;
 }
+
