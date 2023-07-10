@@ -697,6 +697,14 @@ if(isPath("deleterequire_events")) {
 
 }
 
+if(isPath("pictures")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/picture/post.php";
+        die();
+    }
+
+}
+
 
 
 
