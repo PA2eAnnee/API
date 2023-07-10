@@ -12,7 +12,7 @@ $body = getBody();
 // Check if the required keys exist in the $body array
 if (isset($body["id_user"]) && isset($body["id_event"])) {
     try {
-        if (getToken(["token" => getBearerToken()])[0]["user_id"] == $body["id_user"] || authorization(2)) {
+        if (getToken(["token" => getBearerToken()])["user_id"] == $body["id_user"] || authorization(2)) {
             createGoesto($body["id_user"], $body["id_event"]);
 
             echo jsonResponse(200, [], [
