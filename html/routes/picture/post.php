@@ -3,7 +3,7 @@
 // Vérifie si une image a été envoyée
 if (isset($_FILES['photo'])) {
     // Vérifie si le dossier de destination existe, sinon le crée
-    $uploadDir = __DIR__ . '/../../pictures/';
+    $uploadDir = 'pictures/';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
