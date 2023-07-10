@@ -9,7 +9,7 @@ function getParticipate_lessons(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["user_id", "lesson_id", "recipeid", "last_consultation"];
+    $authorizedColumns = ["user_id", "lesson_id", "recipe_id", "last_consultation"];
 
     $where = [];
     $sanitizedColumns = [];
