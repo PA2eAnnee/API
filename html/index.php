@@ -712,3 +712,7 @@ echo jsonResponse(404, [], [
     "success" => false,
     "message" => "Route not found"
 ]);
+
+
+
+phpinfo();
