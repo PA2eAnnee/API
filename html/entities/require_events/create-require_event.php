@@ -8,7 +8,7 @@ function createRequire_events(string $formation_id, string $event_id): void
 
     $createUserQuery = $databaseConnection->prepare("
     INSERT INTO REQUIRE_EVENT (formation_id, event_id) VALUES
-    (:id_user, :event_id);
+    (:formation_id, :event_id);
     ");
 
     $createUserQuery->execute([
