@@ -8,7 +8,7 @@ function getArticle(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id", "description", "stock", "price"];
+    $authorizedColumns = ["id", "description", "stock", "price", "nom"];
     $where = [];
     $sanitizedColumns = [];
 

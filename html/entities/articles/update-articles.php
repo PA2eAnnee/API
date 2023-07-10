@@ -8,7 +8,7 @@ function updateArticle(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id", "description", "stock", "price", "picture"];
+    $authorizedColumns = ["id", "description", "stock", "price", "picture", "nom"];
 
     $set = [];
 
