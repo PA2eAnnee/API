@@ -9,7 +9,7 @@ if (authorization(1)) {
     // Vérifie si une image a été envoyée
     if (isset($_FILES['photo'])) {
         // Vérifie si le dossier de destination existe, sinon le crée
-        $uploadDir = __DIR__ . "/../../img/"; // Ajouter un slash avant "pictures"
+        $uploadDir = __DIR__ . "/img/"; // Ajouter un slash avant "pictures"
         if (!is_dir($uploadDir)) {
             if (!mkdir($uploadDir, 0777, true)) {
                 $response = [
