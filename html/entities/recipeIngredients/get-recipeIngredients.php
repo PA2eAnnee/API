@@ -34,9 +34,9 @@ function getRecipeIngredients(?array $columns = null): array
     $lessons = [];
     foreach ($recipeIngredients as $participatedLesson) {
         $lesson = getIngredients(['id' => $participatedLesson['ingredientid']]);
-        $lessons[] = $lesson[0][$participatedLesson['quantity']];
+        $lessons[] = [$lesson[0],$participatedLesson['quantity']];
     }
-
+    
     return $lessons;
 }
 
