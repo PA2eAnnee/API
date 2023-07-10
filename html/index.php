@@ -675,7 +675,7 @@ if(isPath("deleterequire_lessons")) {
 
 if(isPath("getrequire_events")) {
     if(isPostMethod()) {
-        require_once __DIR__ . "/routes/participate_events/get.php";
+        require_once __DIR__ . "/routes/require_events/get.php";
         die();
     }
 
