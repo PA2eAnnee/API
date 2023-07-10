@@ -12,21 +12,24 @@ if (isset($_FILES['photo'])) {
     $fileName = uniqid() . '_' . $_FILES['photo']['name'];
     $filePath = $uploadDir . $fileName;
 
+    echo($filePath);
+    echo($fileName);
+
     // Déplace le fichier vers le dossier de destination
-    if (move_uploaded_file($_FILES['photo']['tmp_name'], $filePath)) {
-        // Le fichier a été téléchargé avec succès
-        $response = [
-            'status' => 'success',
-            'message' => 'Photo uploaded successfully.',
-            'file_path' => $filePath
-        ];
-    } else {
-        // Une erreur s'est produite lors du téléchargement du fichier
-        $response = [
-            'status' => 'error',
-            'message' => 'Failed to upload photo.'
-        ];
-    }
+    // if (move_uploaded_file($_FILES['photo']['tmp_name'], $filePath)) {
+    //     // Le fichier a été téléchargé avec succès
+    //     $response = [
+    //         'status' => 'success',
+    //         'message' => 'Photo uploaded successfully.',
+    //         'file_path' => $filePath
+    //     ];
+    // } else {
+    //     // Une erreur s'est produite lors du téléchargement du fichier
+    //     $response = [
+    //         'status' => 'error',
+    //         'message' => 'Failed to upload photo.'
+    //     ];
+    // }
 } else {
     // Aucune image envoyée
     $response = [
