@@ -673,6 +673,30 @@ if(isPath("deleterequire_lessons")) {
 
 }
 
+if(isPath("getrequire_events")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/participate_events/get.php";
+        die();
+    }
+
+}
+
+if(isPath("require_events")) {
+    if(isPostMethod()) {
+        require_once __DIR__ . "/routes/require_events/post.php";
+        die();
+    }
+
+}
+
+if(isPath("deleterequire_events")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/require_events/delete.php";
+        die();
+    }
+
+}
+
 
 
 
