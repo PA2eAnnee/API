@@ -9,7 +9,7 @@ if (authorization(1)) {
     // Vérifie si une image a été envoyée
     if (isset($_FILES['photo'])) {
         // Vérifie si le dossier de destination existe, sinon le crée
-        $uploadDir = __DIR__ . "../../img/"; // Ajouter un slash avant "pictures"
+        $uploadDir = __DIR__ . "/../../img/"; // Ajouter un slash avant "pictures"
 
         // Génère un nom de fichier unique pour éviter les doublons
         $fileName = uniqid() . '_' . $_FILES['photo']['name'];
