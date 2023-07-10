@@ -10,7 +10,7 @@ function createEvent(string $description, string $type, string $max_members, str
     INSERT INTO EVENT (description, type, max_members, price, start_date, end_date, id_site, recipe_id) VALUES
     (:description, :type, :max_members, :price, :start_date, :end_date, :id_site, :recipe_id);
     ");
-
+ 
     $parameters = [
         ":description" => htmlspecialchars($description),
         ":type" => htmlspecialchars($type),
