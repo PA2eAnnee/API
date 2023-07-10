@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . "/../ingredients/get-ingredients.php";
 function getRecipeIngredients(?array $columns = null): array
 {
     if (!is_array($columns)) {
@@ -8,7 +8,7 @@ function getRecipeIngredients(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["recipeID", "ingredientID", "quantity"];
+    $authorizedColumns = ["recipeID", "ingredientid", "quantity"];
 
     $where = [];
     $sanitizedColumns = [];
@@ -30,6 +30,13 @@ function getRecipeIngredients(?array $columns = null): array
 
     $recipeIngredients = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    return $recipeIngredients;
+
+    $lessons = [];
+    foreach ($recipeIngredients as $participatedLesson) {
+        $lesson = getIngredients(['id' => $participatedLesson['ingredientid']]);
+        $lessons[] = $lesson[0];
+    }
+
+    return $lessons;
 }
 
