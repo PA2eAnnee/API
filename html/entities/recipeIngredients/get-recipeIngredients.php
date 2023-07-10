@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/../ingredients/get-ingredients.php";
+
 function getRecipeIngredients(?array $columns = null): array
 {
     if (!is_array($columns)) {
@@ -14,9 +15,9 @@ function getRecipeIngredients(?array $columns = null): array
     $sanitizedColumns = [];
 
     foreach ($columns as $columnName => $columnValue) {
-        if (!in_array($columnName, $authorizedColumns) )  {
+        if (!in_array($columnName, $authorizedColumns)) {
             continue;
-        } 
+        }
 
         $where[] = "$columnName = :$columnName";
         $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
@@ -33,10 +34,10 @@ function getRecipeIngredients(?array $columns = null): array
     $ingredients = [];
     foreach ($recipeIngredients as $recipeIngredient) {
         $ingredient = getIngredients(['id' => $recipeIngredient['ingredientid']]);
-        $ingredients[] = $ingredient[0];
+        if (!empty($ingredient)) {
+            $ingredients[] = $ingredient[0];
+        }
     }
 
     return $ingredients;
 }
-
-
