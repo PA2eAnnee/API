@@ -15,7 +15,7 @@ function getRecipeIngredients(?array $columns = null): array
     $sanitizedColumns = [];
 
     foreach ($columns as $columnName => $columnValue) {
-        if (!in_array($columnName, $authorizedColumns)) {
+        if (!in_array($columnName, $authorizedColumns) || $columnValue === null) {
             continue;
         }
 
