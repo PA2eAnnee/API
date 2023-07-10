@@ -96,6 +96,17 @@ if (!empty($existingUsers)) {
     die();
 }
 
+$existingUsers = getUser(["username" => $body["username"]]);
+
+if (!empty($existingUsers)) {
+    echo jsonResponse(400, [], [
+        "success" => false,
+        "message" => "Username already exists",
+        "code" => "existing_username"
+    ]);
+    die();
+}
+
 // Call the createUser function to create the user
 createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"]);
 
