@@ -8,7 +8,7 @@ function getEvent(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id", "description", "type", "max_members", "price", "start_date", "end_date", "id_site", "recipe_id"];
+    $authorizedColumns = ["id", "description", "type", "max_members", "price", "start_date", "end_date", "id_site", "recipe_id","status","organizer"];
 
     $where = [];
     $sanitizedColumns = [];

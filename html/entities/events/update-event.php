@@ -8,7 +8,7 @@ function updateEvent(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["description", "type", "max_members", "price", "start_date", "end_date", "id_site","recipe_id"];
+    $authorizedColumns = ["description", "type", "max_members", "price", "start_date", "end_date", "id_site","recipe_id","status","organizer"];
 
     $set = [];
 
