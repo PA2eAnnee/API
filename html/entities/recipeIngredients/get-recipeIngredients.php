@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . "/../ingredients/get-ingredients.php";
 function getRecipeIngredients(?array $columns = null): array
 {
     if (!is_array($columns)) {
@@ -19,17 +19,24 @@ function getRecipeIngredients(?array $columns = null): array
         }
 
         $where[] = "$columnName = :$columnName";
-        $sanitizedColumns[$columnName] = htmlspecialchars($columnValue);
+        $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
     }
 
     $whereClause = count($where) > 0 ? implode(" AND ", $where) : "1";
 
     $databaseConnection = getDatabaseConnection();
-    $getUserQuery = $databaseConnection->prepare("SELECT * FROM RecipeIngredient WHERE $whereClause;");
-    $getUserQuery->execute($sanitizedColumns);
+    $getIngredientsQuery = $databaseConnection->prepare("SELECT * FROM RecipeIngredient WHERE $whereClause");
+    $getIngredientsQuery->execute($sanitizedColumns);
 
-    $recipeIngredients = $getUserQuery->fetchAll(PDO::FETCH_ASSOC);
+    $recipeIngredients = $getIngredientsQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    return $recipeIngredients;
+    $ingredients = [];
+    foreach ($recipeIngredients as $recipeIngredient) {
+        $ingredient = getIngredients(['id' => $recipeIngredient['ingredientID']]);
+        $ingredients[] = $ingredient[0];
+    }
+
+    return $ingredients;
 }
+
 
