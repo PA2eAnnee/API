@@ -1,6 +1,6 @@
 <?php
 
-function createUser(string $name, string $first_name, string $password, string $username, string $email, string $role, string $subscription, string $picture): void
+function createUser(string $name, string $first_name, string $password, string $username, string $email): void
 {
     require_once __DIR__ . "/../../database/connection.php";
 
@@ -13,9 +13,6 @@ function createUser(string $name, string $first_name, string $password, string $
             password,
             username,
             email,
-            role,
-            subscription,
-            picture,
             creation_time
         ) VALUES (
             :name,
@@ -23,9 +20,6 @@ function createUser(string $name, string $first_name, string $password, string $
             :passwords,
             :username,
             :email,
-            :role,
-            :subscription,
-            :picture,
             CURRENT_TIMESTAMP
         );
     ");
