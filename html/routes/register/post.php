@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__ . "/../entities/users/create_user.php";
+require_once __DIR__ . "/../entities/users/create-user.php";
+require_once __DIR__ . "/../entities/users/get-users.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../libraries/body.php";
 
