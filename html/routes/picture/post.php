@@ -4,6 +4,7 @@
 if (isset($_FILES['photo'])) {
     // Vérifie si le dossier de destination existe, sinon le crée
     $uploadDir = 'pictures/';
+    echo($uploadDir);
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
