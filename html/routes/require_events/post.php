@@ -6,22 +6,22 @@
 
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
-require_once __DIR__ . "/../../entities/goestos/create-goesto.php";
+require_once __DIR__ . "/../../entities/require_events/create-require_event.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
 require_once __DIR__ . "/../../entities/tokens/get-tokens.php";
 require_once __DIR__ . "/../../libraries/get-bearer-token.php";
 
 $body = getBody();
 
-if (getToken(["token" => getBearerToken()])[0]["user_id"] == $body["id_user"] || authorization(2)) {
+if (authorization(2)) {
 
     try {
     
-        createGoesto($body["id_user"], $body["id_event"]);
+        createRequire_events($body["formation_id"], $body["event_id"]);
     
         echo jsonResponse(200, [], [
             "success" => true,
-            "message" => "Goesto ajouté"
+            "message" => "require_events ajouté"
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [

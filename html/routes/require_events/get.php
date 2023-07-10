@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../libraries/response.php";
-require_once __DIR__ . "/../../entities/goestos/get-goestos.php";
+require_once __DIR__ . "/../../entities/require_events/get-require_events.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
 
 
@@ -10,11 +10,11 @@ if (authorization(1)){
     try {
 
         $body = getBody();
-        $goestos = getGoesto($body);
+        $require_events = getRequire_events($body);
     
         echo jsonResponse(200, ["X-School" => "ESGI"], [
             "success" => true,
-            "goestos" => $goestos
+            "require_events" => $require_events
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [
