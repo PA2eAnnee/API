@@ -16,7 +16,7 @@ function getRecipeIngredients(?array $columns = null): array
     foreach ($columns as $columnName => $columnValue) {
         if (!in_array($columnName, $authorizedColumns)) {
             continue;
-        }
+        } 
 
         $where[] = "$columnName = :$columnName";
         $sanitizedColumns[":$columnName"] = htmlspecialchars($columnValue);
