@@ -9,18 +9,7 @@ if (authorization(1)) {
     // Vérifie si une image a été envoyée
     if (isset($_FILES['photo'])) {
         // Vérifie si le dossier de destination existe, sinon le crée
-        $uploadDir = "../../img/"; // Ajouter un slash avant "pictures"
-        if (!is_dir($uploadDir)) {
-            if (!mkdir($uploadDir, 0777, true)) {
-                $response = [
-                    'status' => 'error',
-                    'message' => 'Failed to create upload directory.'
-                ];
-                http_response_code(500);
-                echo json_encode($response);
-                exit;
-            }
-        }
+        $uploadDir = __DIR__ . "../../img/"; // Ajouter un slash avant "pictures"
 
         // Génère un nom de fichier unique pour éviter les doublons
         $fileName = uniqid() . '_' . $_FILES['photo']['name'];
