@@ -322,6 +322,14 @@ if(isPath("getmygoestos")) {
 
 }
 
+if(isPath("gethergoestos")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/goestos/gether.php";
+        die();
+    }
+
+}
+
 if(isPath("contains")) {
 
     if(isPostMethod()) {
