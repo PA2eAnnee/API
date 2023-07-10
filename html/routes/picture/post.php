@@ -5,7 +5,7 @@ require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../entities/recipes/create-recipe.php";
 require_once __DIR__ . "/../../libraries/authorization.php";
 
-if (authorization(1)) {
+if (authorization(0)) {
     // Vérifie si une image a été envoyée
     if (isset($_FILES['photo'])) {
         // Vérifie si le dossier de destination existe, sinon le crée
