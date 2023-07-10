@@ -32,7 +32,7 @@ function getRecipeIngredients(?array $columns = null): array
 
     $ingredients = [];
     foreach ($recipeIngredients as $recipeIngredient) {
-        $ingredient = getIngredients(['id' => $recipeIngredient['ingredientID']]);
+        $ingredient = getIngredients(['id' => $recipeIngredient['ingredientid']]);
         $ingredients[] = $ingredient[0];
     }
 
