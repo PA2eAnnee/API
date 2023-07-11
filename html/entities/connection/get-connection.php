@@ -3,7 +3,7 @@ function getConnection(string $email, string $password, $user): ?array
 {
     require_once __DIR__ . "/../../database/connection.php";
     require_once __DIR__ . "/../tokens/delete-token.php";
-    require_once __DIR__ . "/../tokens/get-token.php";
+    require_once __DIR__ . "/../tokens/get-tokens.php";
     // Générer un token unique
     $token = bin2hex(random_bytes(64));
 
