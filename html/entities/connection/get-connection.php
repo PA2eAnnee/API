@@ -9,9 +9,8 @@ function getConnection(string $email, string $password, $user): ?array
 
     $beforeToken = getToken(["user_id" => $user[0]['id']]);
 
-    if($beforeToken !== null){
-        echo($beforeToken);
-     deleteToken($beforeToken['id']);
+    if ($beforeToken !== null && count($beforeToken) > 0) {
+        deleteToken($beforeToken[0]['id']);
     }
 
     // Insérer le token dans la table TOKENS avec l'id de l'utilisateur
