@@ -22,6 +22,7 @@
     
     <?php
     require_once __DIR__ . "/../../entities/tokens/get-tokens.php";
+    require_once __DIR__ . "/../../entities/tokens/delete-tokens.php";
     require_once __DIR__ . "/../../entities/users/update-user.php";
 
 
@@ -30,8 +31,12 @@
     $token = $_GET['token'] ?? '';
 
     if($token !==""){
+        $tokenId = getToken(["token" => $token])[0]["id"];
         $id= getToken(["token" => $token])[0]["user_id"];
-        updateUser((string)$id,["status" => "ACTIVE"]);
+        $status= updateUser((string)$id,["status" => "ACTIVE"]);
+        if($status){
+            deleteToken((string)$tokenId);
+        }
     }
 
 
