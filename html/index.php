@@ -706,10 +706,8 @@ if(isPath("pictures")) {
 }
 
 if(isPath("validemail")) {
-    if (isPostMethod()) {
         require_once __DIR__ . "/routes/verifinscription/verifinscription.php";
         die();
-    }
 
 }
 
