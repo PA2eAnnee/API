@@ -15,7 +15,7 @@ $to = 'andrei-malicek@outlook.fr';
 $subject = 'Valider votre mot de passe !';
 
 // Charger le contenu du template
-$template = file_get_contents('/../../template/verifEmail.html');
+$template = file_get_contents('../../template/verifEmail.html');
 
 // Remplacer les variables du template avec les valeurs souhaitées
 $variables = array(
