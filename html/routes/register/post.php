@@ -122,7 +122,7 @@ createToken($userId,$randomString);
 $from = 'contact@cookmaster.best';
 
 // Adresse e-mail du destinataire
-$to = 'andrei-malicek@outlook.fr';
+$to = 'lainezelliot@aol.fr';
 
 // Sujet de l'e-mail
 $subject = 'Valider votre mot de passe !';
