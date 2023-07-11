@@ -705,11 +705,11 @@ if(isPath("pictures")) {
 
 }
 
-if(isPath("validemail")) {
-        require_once __DIR__ . "/routes/verifinscription/verifinscription.php";
-        die();
-
+if (preg_match('/^validemail/', $_SERVER['REQUEST_URI'])) {
+    require_once __DIR__ . "/routes/verifinscription/verifinscription.php";
+    die();
 }
+
 
 
 
