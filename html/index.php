@@ -705,12 +705,11 @@ if(isPath("pictures")) {
 
 }
 
-echo $_SERVER['REQUEST_URI'];
-
-if (strpos($_SERVER['REQUEST_URI'], 'validemail') === 0) {
+if (stripos(trim($_SERVER['REQUEST_URI']), 'validemail') === 0) {
     require_once __DIR__ . "/routes/verifinscription/verifinscription.php";
     die();
 }
+
 
 
 
