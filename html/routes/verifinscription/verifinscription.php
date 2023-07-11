@@ -26,7 +26,7 @@
 
     // Récupérer le token depuis l'URL
     $token = $_GET['token'] ?? '';
-    $id= getToken(["token" => $token[0]["user_id"]]);
+    $id= getToken(["token" => $token][0]["user_id"]);
     updateUser((string)$id,["status" => "ACTIVE"]);
 
 
