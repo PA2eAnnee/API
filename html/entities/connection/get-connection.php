@@ -6,6 +6,12 @@ function getConnection(string $email, string $password, $user): ?array
     // Générer un token unique
     $token = bin2hex(random_bytes(64));
 
+    $beforeToken = getToken(["user_id" => $user[0]['id']]);
+
+    if($beforeToken !== null){
+     deleteToken($beforeToken[0]['id']);
+    }
+
     // Insérer le token dans la table TOKENS avec l'id de l'utilisateur
     $databaseConnection = getDatabaseConnection();
     $insertTokenQuery = $databaseConnection->prepare("INSERT INTO TOKENS (user_id, token) VALUES (:user_id, :token);");
