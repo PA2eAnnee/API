@@ -22,6 +22,7 @@
     
     <?php
     require_once __DIR__ . "/../../entities/tokens/get-tokens.php";
+    require_once __DIR__ . "/../../entities/users/update-user.php";
 
 
 
