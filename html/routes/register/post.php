@@ -115,6 +115,7 @@ $userId = createUser($body["name"], $body["first_name"], $body["password"], $bod
 
 
 $randomString = bin2hex(random_bytes(64));
+echo($randomString);
 
 createToken($userId,$randomString);
 
