@@ -8,7 +8,7 @@ function updateRecipe(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["name","description", "duration", "complexityLevel", "video"];
+    $authorizedColumns = ["Name","Description", "Duration", "ComplexityLevel", "Video"];
 
     $set = [];
 
