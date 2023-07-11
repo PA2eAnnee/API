@@ -31,11 +31,14 @@
     $token = $_GET['token'] ?? '';
 
     if($token !==""){
-        $tokenId = getToken(["token" => $token])[0]["id"];
-        $id= getToken(["token" => $token])[0]["user_id"];
-        $status= updateUser((string)$id,["status" => "ACTIVE"]);
-        if($status){
-            deleteToken((string)$tokenId);
+        $token = getToken(["token" => $token])?? '';
+        if($token){
+            $tokenId = $token[0]["id"];
+            $id= $token[0]["user_id"];
+            $status= updateUser((string)$id,["status" => "ACTIVE"]);
+            if($status){
+                deleteToken((string)$tokenId);
+            }
         }
     }
 
