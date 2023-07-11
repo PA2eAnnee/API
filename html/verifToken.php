@@ -13,5 +13,6 @@
     // Afficher le token
     echo "Token récupéré : " . $token;
     ?>
+    
 </body>
 </html>
