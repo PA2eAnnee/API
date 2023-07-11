@@ -115,14 +115,13 @@ $userId = createUser($body["name"], $body["first_name"], $body["password"], $bod
 
 
 $randomString = bin2hex(random_bytes(64));
-
-createToken($userId,$randomString);
+ createToken($userId,$randomString);
 
 // Adresse e-mail de l'expéditeur
 $from = 'contact@cookmaster.best';
 
 // Adresse e-mail du destinataire
-$to = 'lainezelliot@aol.fr';
+$to = 'andrei-malicek@outlook.fr';
 
 // Sujet de l'e-mail
 $subject = 'Valider votre mot de passe !';
@@ -132,8 +131,7 @@ $template = file_get_contents(__DIR__ . '/../../template/verifEmail.html');
 
 // Remplacer les variables du template avec les valeurs souhaitées
 $variables = array(
-    '{name}' => 'John Doe',
-    '{message}' => 'Ceci est le contenu de l\'e-mail.',
+    '{randomString}' =>"https://api.cookmaster.best/validemail?token=".$randomString
 );
 
 $body = strtr($template, $variables);
