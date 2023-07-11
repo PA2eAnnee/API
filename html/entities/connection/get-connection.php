@@ -9,7 +9,7 @@ function getConnection(string $email, string $password, $user , string $origin):
     // Générer un token unique
     $token = bin2hex(random_bytes(64));
 
-    $beforeToken = getToken(["user_id" => $user[0]['id']]);
+    $beforeToken = getToken(["user_id" => $user[0]['id'],"origin" => $origin]);
 
     if ($beforeToken !== null && count($beforeToken) > 0) {
         deleteToken($beforeToken[0]['id']);

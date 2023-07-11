@@ -8,7 +8,7 @@ function updateToken(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id", "user_id", "token", "creation_time"];
+    $authorizedColumns = ["id", "user_id", "token", "creation_time","origin"];
 
     $set = [];
 
