@@ -111,7 +111,7 @@ if (!empty($existingUsers)) {
 
 
 // Call the createUser function to create the user
-$userId = createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"]);
+// $userId = createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"]);
 
 
 $randomString = bin2hex(random_bytes(64));
