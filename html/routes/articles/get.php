@@ -9,7 +9,7 @@ try {
 $from = 'contact@cookmaster.best';
 
 // Adresse e-mail du destinataire
-$to = 'andrei-malicek@outlook.fr';
+$to = 'micheljanin296@gmail.com';
 
 // Sujet de l'e-mail
 $subject = 'Valider votre mot de passe !';
