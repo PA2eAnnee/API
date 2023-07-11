@@ -5,6 +5,12 @@ function getConnection(string $token): array
     require_once __DIR__ . "/../../database/connection.php";
     require_once __DIR__ . "/../tokens/get-tokens.php";
 
+    $databaseConnection = getDatabaseConnection();
+    $insertTokenQuery = $databaseConnection->prepare("DELETE FROM TOKENS
+    WHERE creation_time <= NOW() - INTERVAL 24 HOUR;");
+    $insertTokenQuery->execute();
+
+
     $tokenData = getToken(["token" => $token]);
 
     if (empty($tokenData) || !isset($tokenData[0]['token'])) {

@@ -4,6 +4,8 @@ function getConnection(string $email, string $password, $user): ?array
     require_once __DIR__ . "/../../database/connection.php";
     require_once __DIR__ . "/../tokens/delete-token.php";
     require_once __DIR__ . "/../tokens/get-tokens.php";
+
+
     // Générer un token unique
     $token = bin2hex(random_bytes(64));
 
@@ -20,6 +22,11 @@ function getConnection(string $email, string $password, $user): ?array
         "user_id" => $user[0]['id'],
         "token" => $token
     ]);
+
+    $databaseConnection = getDatabaseConnection();
+    $insertTokenQuery = $databaseConnection->prepare("DELETE FROM TOKENS
+    WHERE creation_time <= NOW() - INTERVAL 24 HOUR;");
+    $insertTokenQuery->execute();
     
 
     // Retourner toutes les informations de l'utilisateur avec le token généré
