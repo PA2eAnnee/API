@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Récupération de Token</title>
+    <script>
+        window.onload = function() {
+            // Récupérer l'URL actuelle
+            var url = window.location.href;
+            
+            // Chercher le paramètre "token" dans l'URL
+            var params = new URLSearchParams(new URL(url).search);
+            var token = params.get("token");
+            
+            // Stocker le token dans une variable JavaScript
+            var tokenVariable = token;
+            
+            // Afficher le token dans la console
+            console.log("Token récupéré :", tokenVariable);
+        }
+    </script>
+</head>
+<body>
+    <h1>Récupération de Token</h1>
+    <!-- Le contenu de votre page HTML ici -->
+</body>
+</html>
