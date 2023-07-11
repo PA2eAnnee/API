@@ -2,22 +2,18 @@
 <html>
 <head>
     <title>Validation de votre email en cours...</title>
-    <script>
-        window.onload = function() {
-            var title = document.title;
-            var dots = '';
+    <style>
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
 
-            setInterval(function() {
-                if (dots.length < 3) {
-                    dots += '.';
-                } else {
-                    dots = '';
-                }
-
-                document.title = title + dots;
-            }, 500);
-        };
-    </script>
+        h1::after {
+            content: '...';
+            animation: blink 1s infinite;
+        }
+    </style>
 </head>
 <body>
     <h1>Validation de votre email en cours</h1>
