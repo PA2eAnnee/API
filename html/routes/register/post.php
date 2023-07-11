@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../../entities/users/create-user.php";
 require_once __DIR__ . "/../../entities/users/get-users.php";
+require_once __DIR__ . "/../../entities/tokens/create-token.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../libraries/body.php";
 require_once __DIR__ . "/../../database/connection.php";
