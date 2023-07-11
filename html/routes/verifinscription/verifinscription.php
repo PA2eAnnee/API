@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Récupération de Token</title>
+    <title>Validation de votre email en cours...</title>
+    <script>
+        window.onload = function() {
+            var title = document.title;
+            var dots = '';
+
+            setInterval(function() {
+                if (dots.length < 3) {
+                    dots += '.';
+                } else {
+                    dots = '';
+                }
+
+                document.title = title + dots;
+            }, 500);
+        };
+    </script>
 </head>
 <body>
-    <h1>Récupération de Token</h1>
+    <h1>Validation de votre email en cours</h1>
     
     <?php
     // Récupérer le token depuis l'URL
