@@ -9,7 +9,7 @@ if (authorization(0)){
     try {
 
         $body = getBody();
-        $users = getTicket($body);
+        $tickets = getTicket($body);
     
         echo jsonResponse(200, ["X-School" => "ESGI"], [
             "success" => true,

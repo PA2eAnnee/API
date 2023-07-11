@@ -10,7 +10,7 @@ if (authorization(2)){
     try {
 
         $body = getBody();
-        $users = getCours($body);
+        $cours = getCours($body);
     
         echo jsonResponse(200, ["X-School" => "ESGI"], [
             "success" => true,
