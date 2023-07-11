@@ -10,11 +10,11 @@ if (authorization(2)){
     try {
 
         $body = getBody();
-        $cours = getCours($body);
+        $courses = getCours($body);
     
         echo jsonResponse(200, ["X-School" => "ESGI"], [
             "success" => true,
-            "cours" => $cours
+            "courses" => $courses
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [
