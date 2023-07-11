@@ -1,13 +1,13 @@
 <?php
 
-function createToken(string $user_id, string $token): void
+function createToken(string $user_id, string $token, string $origin): void
 {
     require_once __DIR__ . "/../../database/connection.php";
 
     $databaseConnection = getDatabaseConnection();
 
     $createUserQuery = $databaseConnection->prepare("
-    INSERT INTO TOKENS (user_id, token) VALUES (:user_id, :token);"
+    INSERT INTO TOKENS (user_id, token, origin) VALUES (:user_id, :token , :origin);"
     );
 
     $createUserQuery->execute([
