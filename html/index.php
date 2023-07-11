@@ -705,7 +705,9 @@ if(isPath("pictures")) {
 
 }
 
-if (stripos(trim($_SERVER['REQUEST_URI']), 'validemail') === 0) {
+$chaineRecherche = "validemail";
+
+if (strpos($_SERVER['REQUEST_URI'], $chaineRecherche) !== false) {
     require_once __DIR__ . "/routes/verifinscription/verifinscription.php";
     die();
 }
