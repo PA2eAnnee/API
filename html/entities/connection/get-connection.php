@@ -20,7 +20,8 @@ function getConnection(string $email, string $password, $user , string $origin):
     $insertTokenQuery = $databaseConnection->prepare("INSERT INTO TOKENS (user_id, token, origin) VALUES (:user_id, :token, :origin);");
     $insertTokenQuery->execute([
         "user_id" => $user[0]['id'],
-        "token" => $token
+        "token" => $token,
+        "origin" => $origin
     ]);
 
     $databaseConnection = getDatabaseConnection();

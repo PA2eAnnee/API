@@ -27,7 +27,7 @@ try {
     }
 
 
-    $connection = getConnection($body["email"], $body["password"], $user, $body["password"]);
+    $connection = getConnection($body["email"], $body["password"], $user, $body["origin"]);
 
     echo jsonResponse(200, ["X-School" => "ESGI"], [
         "success" => true,
