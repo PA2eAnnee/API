@@ -1,6 +1,6 @@
 <?php
 
-function updateUser(string $id, $columns): void
+function updateUser(string $id, $columns): bool
 {
     if (count($columns) === 0) {
         return;
@@ -31,4 +31,6 @@ function updateUser(string $id, $columns): void
     $databaseConnection = getDatabaseConnection();
     $updateUserQuery = $databaseConnection->prepare("UPDATE USERS SET $set WHERE id = :id;");
     $updateUserQuery->execute($sanitizedColumns);
+
+    return true;
 }

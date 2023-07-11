@@ -112,9 +112,8 @@ if (!empty($existingUsers)) {
 // Call the createUser function to create the user
 $userId = createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"]);
 
-$length = 32; // longueur de la chaîne en octets
-$randomBytes = random_bytes($length);
-$randomString = bin2hex($randomBytes);
+
+$randomString = bin2hex(random_bytes(64));
 
 createToken($userId,$randomString);
 

@@ -1,5 +1,5 @@
 <?php
-function getConnection(string $email, string $password, $user): ?array
+function getConnection(string $email, string $password, $user , string $origin): ?array
 {
     require_once __DIR__ . "/../../database/connection.php";
     require_once __DIR__ . "/../tokens/delete-token.php";
@@ -17,7 +17,7 @@ function getConnection(string $email, string $password, $user): ?array
 
     // Insérer le token dans la table TOKENS avec l'id de l'utilisateur
     $databaseConnection = getDatabaseConnection();
-    $insertTokenQuery = $databaseConnection->prepare("INSERT INTO TOKENS (user_id, token) VALUES (:user_id, :token);");
+    $insertTokenQuery = $databaseConnection->prepare("INSERT INTO TOKENS (user_id, token, origin) VALUES (:user_id, :token, :origin);");
     $insertTokenQuery->execute([
         "user_id" => $user[0]['id'],
         "token" => $token
