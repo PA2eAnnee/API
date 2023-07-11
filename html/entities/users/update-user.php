@@ -3,7 +3,7 @@
 function updateUser(string $id, $columns): bool
 {
     if (count($columns) === 0) {
-        return;
+        return false;
     }
 
     require_once __DIR__ . "/../../database/connection.php";
