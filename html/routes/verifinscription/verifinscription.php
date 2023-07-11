@@ -14,16 +14,14 @@
             animation: blink 1s infinite;
         }
     </style>
+    <meta http-equiv="refresh" content="5;url=page-de-connexion.html">
 </head>
 <body>
-    <h1>Validation de votre email en cours</h1>
+    <p>Vous serez redirigé(e) dans un instant vers la page de connexion.</p>
     
     <?php
     // Récupérer le token depuis l'URL
     $token = $_GET['token'] ?? '';
-
-    // Afficher le token
-    echo "Token récupéré : " . $token;
     ?>
     
 </body>
