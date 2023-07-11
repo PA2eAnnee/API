@@ -8,7 +8,7 @@ function getRecipe(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id","name", "description", "duration", "complexityLevel", "video"];
+    $authorizedColumns = ["ID","Name", "Description", "Duration", "ComplexityLevel", "Video"];
     $where = [];
     $sanitizedColumns = [];
 
