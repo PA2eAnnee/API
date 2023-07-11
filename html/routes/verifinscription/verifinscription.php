@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Validation de votre email en cours...</title>
+    <title>Validation E-mail</title>
     <style>
         @keyframes blink {
             0% { opacity: 0; }
@@ -17,6 +17,7 @@
     <meta http-equiv="refresh" content="5;url=page-de-connexion.html">
 </head>
 <body>
+    <h1>Validation de votre email en cours ...</h1>
     <p>Vous serez redirigé(e) dans un instant vers la page de connexion.</p>
     
     <?php
