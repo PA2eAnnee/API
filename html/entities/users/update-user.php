@@ -8,7 +8,7 @@ function updateUser(string $id, $columns): bool
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["email", "name", "first_name", "username", "email", "role", "subscription", "password"];
+    $authorizedColumns = ["email", "name", "first_name", "username", "email", "role", "subscription", "password","status"];
 
     $set = [];
 

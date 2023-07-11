@@ -8,7 +8,7 @@ function getUser(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id", "email", "name", "first_name", "username", "email", "role", "subscription", "creation_time"];
+    $authorizedColumns = ["id", "email", "name", "first_name", "username", "email", "role", "subscription", "creation_time","status"];
 
     $where = [];
     $sanitizedColumns = [];
