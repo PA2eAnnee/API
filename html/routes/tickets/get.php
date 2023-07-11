@@ -13,7 +13,7 @@ if (authorization(0)){
     
         echo jsonResponse(200, ["X-School" => "ESGI"], [
             "success" => true,
-            "users" => $users
+            "tickets" => $tickets
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [
