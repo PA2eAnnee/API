@@ -12,6 +12,7 @@ function createToken(string $user_id, string $token, string $origin): void
 
     $createUserQuery->execute([
         ":user_id" => htmlspecialchars($user_id),
-        ":token" => htmlspecialchars($token)
+        ":token" => htmlspecialchars($token),
+        ":origin" => htmlspecialchars($origin)
     ]);
 }
