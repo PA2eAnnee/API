@@ -4,6 +4,7 @@ require_once __DIR__ . "/../../entities/users/create-user.php";
 require_once __DIR__ . "/../../entities/users/get-users.php";
 require_once __DIR__ . "/../../libraries/response.php";
 require_once __DIR__ . "/../../libraries/body.php";
+require_once __DIR__ . "/../../database/connection.php";
 
 $body = getBody();
 
@@ -107,8 +108,15 @@ if (!empty($existingUsers)) {
     die();
 }
 
+
 // Call the createUser function to create the user
-createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"]);
+$userId = createUser($body["name"], $body["first_name"], $body["password"], $body["username"], $body["email"]);
+
+$length = 32; // longueur de la chaîne en octets
+$randomBytes = random_bytes($length);
+$randomString = bin2hex($randomBytes);
+
+createToken($userId,$randomString);
 
 // Adresse e-mail de l'expéditeur
 $from = 'contact@cookmaster.best';

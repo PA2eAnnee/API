@@ -21,8 +21,15 @@
     <p>Vous serez redirigé(e) dans un instant vers la page de connexion.</p>
     
     <?php
+    require_once __DIR__ . "/../../entities/tokens/get-tokens.php";
+
+
     // Récupérer le token depuis l'URL
     $token = $_GET['token'] ?? '';
+    $id= getToken(["token" => getBearerToken()])[0]["user_id"];
+    updateUser($id,["status" => "ACTIVE"]);
+
+
     ?>
     
 </body>

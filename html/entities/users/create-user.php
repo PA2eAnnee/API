@@ -1,6 +1,6 @@
 <?php
 
-function createUser(string $name, string $first_name, string $password, string $username, string $email): void
+function createUser(string $name, string $first_name, string $password, string $username, string $email): string
 {
     require_once __DIR__ . "/../../database/connection.php";
 
@@ -31,4 +31,7 @@ function createUser(string $name, string $first_name, string $password, string $
         ":email" => htmlspecialchars($email),
         ":passwords" => password_hash(htmlspecialchars($password), PASSWORD_BCRYPT)
     ]);
+
+    $userId = $databaseConnection->lastInsertId();
+    return $userId;
 }
