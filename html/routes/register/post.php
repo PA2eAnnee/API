@@ -121,7 +121,7 @@ $randomString = bin2hex(random_bytes(64));
 $from = 'contact@cookmaster.best';
 
 // Adresse e-mail du destinataire
-$to = 'andrei-malicek@outlook.fr';
+$to = $body["email"];
 
 // Sujet de l'e-mail
 $subject = 'Valider votre mot de passe !';
