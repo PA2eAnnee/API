@@ -1,6 +1,6 @@
 <?php
 
-function createCours(string $name, string $description, string $price, string $type, string $course_date, string $course_enddate, string $user_id): void
+function createCours(string $name, string $description, string $type, string $course_date, string $course_enddate, string $user_id): int
 {
     require_once __DIR__ . "/../../database/connection.php";
 
@@ -15,7 +15,6 @@ function createCours(string $name, string $description, string $price, string $t
             course_date,
             course_enddate,
             user_id
-
         ) VALUES (
             :name,
             :description,
@@ -27,13 +26,27 @@ function createCours(string $name, string $description, string $price, string $t
         );
     ");
 
+    // Calculer la différence en heures
+    $start = new DateTime($course_date);
+    $end = new DateTime($course_enddate);
+    $diff = $end->diff($start);
+    $hours = $diff->h;
+    $hours += $diff->days * 24;
+
+    // Calculer le prix en fonction du nombre d'heures
+    $hourlyRate = 50; // Tarif horaire
+    $price = $hours * $hourlyRate;
+    $roundedPrice = ceil($price);
+
     $createUserQuery->execute([
         ":name" => htmlspecialchars($name),
         ":description" => htmlspecialchars($description),
-        ":price" => htmlspecialchars($price),
+        ":price" => htmlspecialchars($roundedPrice),
         ":type" => htmlspecialchars($type),
         ":course_date" => htmlspecialchars($course_date),
         ":course_enddate" => htmlspecialchars($course_enddate),
         ":user_id" => htmlspecialchars($user_id)
     ]);
+
+    return ($price);
 }

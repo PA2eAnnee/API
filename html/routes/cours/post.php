@@ -15,11 +15,11 @@ if (authorization(2)){
     try {
         $body = getBody();
     
-        createCours($body["name"], $body["description"],$body["price"], $body["type"],$body["course_date"],$body["course_enddate"],$body["user_id"]);
+       $price=createCours($body["name"], $body["description"], $body["type"],$body["course_date"],$body["course_enddate"],$body["user_id"]);
     
         echo jsonResponse(200, [], [
             "success" => true,
-            "message" => "cours créé"
+            "message" => $price
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [
