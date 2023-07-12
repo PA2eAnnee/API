@@ -8,7 +8,7 @@ function updateOrder(string $id, $columns): void
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["send_date", "total_price", "id_user"];
+    $authorizedColumns = ["send_date", "total_price", "id_user","quantity"];
 
     $set = [];
 

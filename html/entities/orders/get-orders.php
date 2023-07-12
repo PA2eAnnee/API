@@ -8,7 +8,7 @@ function getOrder(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id", "send_date", "total_price", "id_user"];
+    $authorizedColumns = ["id", "send_date", "total_price", "id_user", "quantity"];
 
     $where = [];
     $sanitizedColumns = [];
