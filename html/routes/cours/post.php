@@ -19,7 +19,7 @@ if (authorization(2)){
     
         echo jsonResponse(200, [], [
             "success" => true,
-            "message" => $price
+            "price" => $price
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [
