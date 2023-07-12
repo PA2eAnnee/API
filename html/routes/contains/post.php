@@ -17,11 +17,11 @@ if (authorization(0)){
     try {
         $body = getBody();
     
-        createContain($body["id_article"], $body["id_order"]);
+       $orderid= createContain($body["id_article"], $body["id_order"], $body["quantity"]);
     
         echo jsonResponse(200, [], [
             "success" => true,
-            "message" => "contain créé"
+            "orderid" => "orderid"
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [
