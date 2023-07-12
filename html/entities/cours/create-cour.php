@@ -34,6 +34,6 @@ function createCours(string $name, string $description, string $price, string $t
         ":type" => htmlspecialchars($type),
         ":course_date" => htmlspecialchars($course_date),
         ":course_enddate" => htmlspecialchars($course_enddate),
-        ":user_id" => htmlspecialchars($type)
+        ":user_id" => htmlspecialchars($user_id)
     ]);
 }
