@@ -8,7 +8,7 @@ function getCours(?array $columns = null): array
 
     require_once __DIR__ . "/../../database/connection.php";
 
-    $authorizedColumns = ["id","email", "description", "price", "type", "email", "course_date"];
+    $authorizedColumns = ["id","email", "description", "price", "type", "email", "course_date","course_enddate","user_id","cooker_id","status"];
 
     $where = [];
     $sanitizedColumns = [];
