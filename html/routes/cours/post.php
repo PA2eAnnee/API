@@ -15,7 +15,7 @@ if (authorization(2)){
     try {
         $body = getBody();
     
-        createCours($body["name"], $body["description"],$body["price"], $body["type"],$body["course_date"],$body["course_enddate"],$body["user_id"],$body["cooker_id"],$body["status"]);
+        createCours($body["name"], $body["description"],$body["price"], $body["type"],$body["course_date"],$body["course_enddate"],$body["user_id"]);
     
         echo jsonResponse(200, [], [
             "success" => true,
