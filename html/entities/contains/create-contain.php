@@ -1,6 +1,6 @@
 <?php
 
-function createContain(string $id_article, string $id_order, string $quantity): int
+function createContain(string $id_article, string $id_order, string $quantity): void
 {
     require_once __DIR__ . "/../../database/connection.php";
 
