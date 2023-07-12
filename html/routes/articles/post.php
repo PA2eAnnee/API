@@ -16,7 +16,7 @@ if (authorization(2)){
     try {
         $body = getBody();
         
-        createArticle($body["nom"],$body["description"],$body["stock"], $body["price"], $body["picture"]);
+        createArticle($body["name"],$body["description"],$body["stock"], $body["price"], $body["picture"]);
     
         echo jsonResponse(200, [], [
             "success" => true,
