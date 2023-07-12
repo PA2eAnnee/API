@@ -705,6 +705,14 @@ if(isPath("pictures")) {
 
 }
 
+if(isPath("factures")) {
+    if (isPostMethod()) {
+        require_once __DIR__ . "/routes/pdf/post.php";
+        die();
+    }
+
+}
+
 $chaineRecherche = "validemail";
 
 if (strpos($_SERVER['REQUEST_URI'], $chaineRecherche) !== false) {
