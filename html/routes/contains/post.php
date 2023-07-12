@@ -17,7 +17,7 @@ if (authorization(0)){
     try {
         $body = getBody();
     
-       $orderid= createContain($body["id_article"], $body["id_order"], $body["quantity"]);
+       createContain($body["id_article"], $body["id_order"], $body["quantity"]);
     
         echo jsonResponse(200, [], [
             "success" => true,

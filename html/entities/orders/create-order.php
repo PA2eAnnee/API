@@ -1,6 +1,6 @@
 <?php
 
-function createOrder(string $total_price, string $id_user): void
+function createOrder(string $total_price, string $id_user): int
 {
     require_once __DIR__ . "/../../database/connection.php";
 
@@ -15,5 +15,7 @@ function createOrder(string $total_price, string $id_user): void
         ":total_price" => htmlspecialchars($total_price),
         ":id_user" => htmlspecialchars($id_user)
     ]);
+    $userId = $databaseConnection->lastInsertId();
+    return $userId;
 
 }

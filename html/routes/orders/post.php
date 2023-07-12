@@ -16,11 +16,11 @@ if (authorization(0)){
     try {
         $body = getBody();
     
-        createOrder($body["total_price"], $body["id_user"]);
+       $userId = createOrder($body["total_price"], $body["id_user"]);
     
         echo jsonResponse(200, [], [
             "success" => true,
-            "message" => "Commande créé"
+            "userId" => $userId
         ]);
     } catch (Exception $exception) {
         echo jsonResponse(500, [], [

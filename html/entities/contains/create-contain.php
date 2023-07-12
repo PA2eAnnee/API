@@ -17,8 +17,6 @@ function createContain(string $id_article, string $id_order, string $quantity): 
         ":quantity" => htmlspecialchars($quantity),
     ]);
 
-    $userId = $databaseConnection->lastInsertId();
-    return $userId;
 
     
 }
