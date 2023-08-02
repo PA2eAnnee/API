@@ -9,7 +9,7 @@ function authorization($role) {
 
     // Vérifier si le token existe
     if (!$token) {
-        return true; // ou une valeur par défaut si nécessaire
+        return true; // ou une valeur par défaut si nécessaire 
     }
 
     // Supprimer le préfixe 'Bearer ' du token si présent
