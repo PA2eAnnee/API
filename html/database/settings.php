@@ -17,8 +17,8 @@ $databaseHostname = "127.0.0.1";
 
 $databasePort = 3306;
 
-$databaseName = "cookmaster";
+$databaseName = "aen";
 
-$databaseUsername = "cookmaster";
+$databaseUsername = "aen";
 
-$databasePassword = "cookmaster";
+$databasePassword = "aen";
